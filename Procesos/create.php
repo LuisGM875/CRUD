@@ -14,8 +14,19 @@ $datos=array($producto,
     $marca,
     $comprado);
 
+if (! $_POST
+    || trim($_POST['txtnombre'])   === ''
+    || trim($_POST['txtcategoria'])     === ''
+    || trim($_POST['txtcantidad'])     === ''
+    || trim($_POST['txtmarca']) === ''
+    || trim($_POST['txtcomprado']) === ''
+) {
+    header("location:../index.php");
+}
 if($obj->create($datos)==1){
     header("location:../index.php");
 }else{
     echo "Fallo al agregar";
 }
+
+
